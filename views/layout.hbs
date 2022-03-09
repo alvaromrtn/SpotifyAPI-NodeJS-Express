@@ -1,0 +1,81 @@
+<!-- views/layout.hbs -->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>titulo cambiar</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <style type="text/css" media="screen, print">
+        @font-face {
+            font-family: "SpotifyFont";
+            src: url("/fonts/Circular.woff2");
+        }
+
+        body {
+            font-family: "SpotifyFont", bold
+        }
+    </style>
+
+</head>
+
+<body class="d-flex flex-column min-vh-100" >
+
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+
+            <a href="/" class="navbar-brand">
+                <img src="/images/logo/spotify2.png" height="80" alt="HP CURSO">
+            </a>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" style="padding: 10px">
+                    <a class="nav-link" href="/random" style="font-size: 32"><b>Random</b></a>
+                </li>
+                <li></li>
+                <li class="nav-item" style="padding: 10px" >
+                    <a class="nav-link" href="/contacto" style="font-size: 32"><b>Contacto</b></a>
+                </li>
+            </ul>
+
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+
+
+
+
+    </div>
+    <div style="padding-bottom: 105px"></div>
+    <main>
+        {{{ body }}}
+    </main>
+
+
+
+    <footer class="page-footer font-small  pt-1 mt-auto " style="background-color: black;">
+        <div class="container-fluid text-bottom text-md-left">
+            <div class = "row align-items-center">
+                <div class="col-md-4 mt-3">
+                    <p class="text-muted">Trabajo de NodeJS + Express | Aprovechamiento de la API de Spotify</p>
+                </div>
+                <div class="col-md-4  mt-3">
+                    <p class="text-muted text-center">Alvaro Martin y Daniel Meruelo</p>
+                </div>
+                <div class="col-md-4 mb-md-4 mt-3 ">
+                    <img class="ml-3 float-right" src="/images/logo/spotify2.png" alt="HP CURSO" style="height: 80">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>
