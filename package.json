@@ -1,7 +1,6 @@
 {
   "name": "trabajo-1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -12,6 +11,16 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "hbs": "^4.2.0"
-  }
+    "hbs": "^4.2.0",
+    "nodemon": "^2.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvaromrtn/SpotifyAPI-NodeJS-Express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alvaromrtn/SpotifyAPI-NodeJS-Express/issues"
+  },
+  "homepage": "https://github.com/alvaromrtn/SpotifyAPI-NodeJS-Express#readme",
+  "description": ""
 }
