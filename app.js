@@ -33,7 +33,7 @@ app.post("/login", (request, response, next) => {
   let username = request.body.username;
   let password = request.body.password;
 
-  if (username == "admin" && password == "admin") {
+  if (username == "pepe@pepe.com" && password == "Immune12345") {
     let data = {
       login: true,
       code: true,
