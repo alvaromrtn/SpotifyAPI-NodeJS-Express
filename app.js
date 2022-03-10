@@ -1,7 +1,5 @@
 //referencia: https://github.com/Jossdz/lab-spotify-express
 
-
-
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
@@ -80,7 +78,6 @@ app.get("/artistas", (request, response, next) => {
     }
   );
 });
->>>>>>> a03b02324c155f6412e036cbba111e8b9f44b574
 
 app.get("/random", (request, response, next) => {
   var random = "";
