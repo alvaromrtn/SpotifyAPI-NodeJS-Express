@@ -1,36 +1,82 @@
 <!-- views/layout.hbs -->
 
-<html lang="en">
+<html lang="es">
 
-<head>
+  <head>
     <meta charset="utf-8" />
-    <title>titulo cambiar</title>
+    <title>Spotify API</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
     <style type="text/css" media="screen, print">
-        @font-face {
-            font-family: "SpotifyFont";
-            src: url("/fonts/Circular.woff2");
-        }
-
-        body {
-            font-family: "SpotifyFont", bold
-        }
+      @font-face { font-family: "SpotifyFont"; src:
+      url("/fonts/Circular.woff2"); } body { font-family: "SpotifyFont", bold }
     </style>
 
-</head>
+  </head>
 
+<<<<<<< HEAD
+  <body>
+    <div class="container-fluid" style="height:100%">
+      <div style="height:8%; width:100%">
+        <div class="row h-100">
+          <nav
+            class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+            style="height:8%"
+            role="navigation"
+          >
+            <div class="col-2">
+              <a href="/" class="navbar-brand">
+                <img
+                  src="/images/logo/spotify2.png"
+                  height="100%"
+                  alt="HP CURSO"
+                />
+              </a>
+            </div>
+=======
 <body class="d-flex flex-column min-vh-100">
 
-    <div>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+            <div class="col-2">
+              <a class="nav-link" href="/random" style="font-size: 32"><b
+                >Random</b></a>
+            </div>
+            <div class="col-5">
+              <a class="nav-link" href="/contacto" style="font-size: 32"><b
+                >Contacto</b></a>
+            </div>
+            <div class="col-3">
+              <form
+                class="form-inline mt-2 mt-md-0"
+                action="/:buscar/"
+                method="POST"
+                style="float:left"
+              >
+                <input
+                  class="form-control mr-sm-2"
+                  type="text"
+                  placeholder="Search"
+                  aria-label="Buscar"
+                />
+                <button
+                  class="btn btn-outline-success my-2 my-sm-0"
+                  type="submit"
+                >Buscar</button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
 
-            <a href="/" class="navbar-brand">
-                <img src="/images/logo/spotify2.png" height="80" alt="HP CURSO">
-            </a>
 
+<<<<<<< HEAD
+      <!--------------------------------------------------------->
+=======
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" style="padding: 10px">
                     <a class="nav-link" href="/buscar" style="font-size: 32"><b>Buscar</b></a>
@@ -50,12 +96,52 @@
             </ul>
 
 
-    </div>
-    <div style="padding-bottom: 105px"></div>
-    <main>
-        {{{ body }}}
-    </main>
+      <div style="height:84% width:100%">
+        <div class="row w-100">
+          <main>
+            {{{body}}}
+          </main>
+        </div>
+      </div>
 
+
+      <!--------------------------------------------------------->
+
+
+      <footer
+        class="page-footer font-small w-100 mt-auto"
+        style="background-color: black; height:8%;"
+      >
+        <div class="row justify-items-around w-100" style="height:100%">
+          <div class="col-5 align-self-center">
+            <p class="text-muted">Trabajo de NodeJS + Express | Aprovechamiento
+              de la API de Spotify</p>
+          </div>
+
+          <div class="col-5 align-self-center">
+            <p class="row text-muted justify-text-center">Alvaro Martin y Daniel
+              Meruelo</p>
+          </div>
+
+          <div class="col-2 align-self-center">
+            <img
+              class="ml-3 float-right"
+              src="/images/logo/spotify2.png"
+              alt="HP CURSO"
+              style="height: 80"
+            />
+          </div>
+
+        </div>
+      </footer>
+
+
+
+    </div>
+
+<<<<<<< HEAD
+  </body>
+=======
 
 
     <footer class="page-footer font-small  pt-1 mt-auto " style="background-color: black;">
@@ -78,5 +164,6 @@
 
 
 </body>
+>>>>>>> a03b02324c155f6412e036cbba111e8b9f44b574
 
 </html>
