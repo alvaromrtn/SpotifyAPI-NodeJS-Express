@@ -1,0 +1,34 @@
+<!-- views/artistaCard.hbs -->
+
+<div class="col-md-4">
+    <div class="card">
+        <div class="card-title">
+
+            <h5>{{this.name}}</h5>
+            {{#each this.images}}
+            {{#if @first}}
+            <div class="col-md-6">
+                <img class="card-img-top" src="{{this.url}}" />
+            </div>
+            {{/if}}
+            {{/each}}
+
+        </div>
+
+        <div class="card-body">
+
+            <p>Seguidores: {{this.followers.total}} </p>
+
+            <p> Géneros:
+                {{#each this.genres}}
+            <div class="col-md-6">
+                <p>{{this}}</p>
+            </div>
+            {{/each}}
+            </p>
+
+            <a href="/albumes/{{this.id}}">ÁLBUMES</a>
+
+        </div>
+    </div>
+</div>

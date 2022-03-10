@@ -1,0 +1,14 @@
+<!-- views/artistas.hbs -->
+
+<div class="container">
+  <div class="jumbotron text-center">
+
+    <h1>ARTISTAS:</h1>
+    <div class="row">
+      {{#each artistas}}
+      {{> artistaCard this}}
+      {{/each}}
+
+    </div>
+  </div>
+</div>

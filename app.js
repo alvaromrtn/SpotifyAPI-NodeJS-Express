@@ -3,7 +3,7 @@ const hbs = require("hbs");
 const app = express();
 const path = require("path");
 
-const bodyParser = require('body-parser'); // middleware
+const bodyParser = require("body-parser"); // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("view engine", "hbs");
@@ -14,26 +14,126 @@ hbs.registerPartials(__dirname + "\\views");
 
 app.get("/", (req, res, next) => res.render("home"));
 
-app.get("/random", (req, res, next) => res.render("random"));
-
-app.get("/buscar", (req, res, next) => res.render("buscar"));
+app.get("/buscar", (request, response, next) => {
+  response.render("buscar");
+});
 
 app.get("/contacto", (req, res, next) => res.render("contacto"));
 
-
-app.get('/login', (req, res, next) => res.render("login"));
-
-app.post('/login', (req, res) => {
-    // Insert Login Code Here
-    let username = req.body.username;
-    let password = req.body.password;
-
-    if ((username == "admin") && (password == "admin")) {
-        res.send("<div align='center'><h2>USUARIO Y CONTRASEÑA CORRECTOS</h2></div>");
-    } else {
-        res.send("<div align='center'><h2>ERROR</h2></div>");
-    }
+app.get("/login", (request, response, next) => {
+  let data = {
+    login: false,
+  };
+  response.render("login", data);
 });
 
+app.post("/login", (request, response, next) => {
+  let username = request.body.username;
+  let password = request.body.password;
+
+  if (username == "admin" && password == "admin") {
+    let data = {
+      login: true,
+      code: true,
+    };
+    response.render("login", data);
+  } else {
+    let data = {
+      login: true,
+      code: false, //No autorizado
+    };
+    response.render("login", data);
+  }
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const SpotifyWebApi = require("spotify-web-api-node");
+
+var spotifyApi = new SpotifyWebApi({
+  clientId: "ac60ad5f77514dda91620841b39b1795",
+  clientSecret: "c34200f21254435fb884bf56ab5c3bbb",
+});
+
+spotifyApi.clientCredentialsGrant().then(
+  function (data) {
+    spotifyApi.setAccessToken(data.body["access_token"]);
+  },
+  function (err) {
+    console.log("ERROR: Recuperar token de acceso", err);
+  }
+);
+
+app.get("/artistas", (request, response, next) => {
+  spotifyApi.searchArtists(request.query.nombre).then(
+    function (data) {
+      response.render("artistas", {
+        artistas: data.body.artists.items,
+      });
+    },
+    function (err) {
+      console.log("ERROR: buscarArtistas", err);
+    }
+  );
+});
+
+app.get("/random", (request, response, next) => {
+  var random = "";
+  var posible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  random = posible.charAt(Math.floor(Math.random() * posible.length));
+
+  // { limit: 10, offset: 20 } -> range[20...29]
+  // Artistas en el rango[50...50]
+  spotifyApi.searchArtists(random, { limit: 50, offset: 50 }).then(
+    function (data) {
+      response.render("artistas", {
+        artistas: data.body.artists.items,
+      });
+    },
+    function (err) {
+      console.log("ERROR: buscarArtistas", err);
+    }
+  );
+});
+
+app.use(function (request, response, next) {
+  response.status(404).render("Error404");
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+function buscarArtistas(nombreArtista) {
+    nombreArtista = "a";
+    spotifyApi.searchArtists(nombreArtista)
+        .then(function (data) {
+            return data.body.artists.items;
+        }, function (err) {
+            console.log("ERROR: buscarArtistas", err);
+        });
+}
+
+function buscarAlbums(idArtista) {
+    idArtista = "5ZS223C6JyBfXasXxrRqOk";
+    spotifyApi.getArtistAlbums(idArtista)
+        .then(function (data) {
+            return data.body.items;
+        }, function (err) {
+            console.log("ERROR: buscarAlbums", err);
+        });
+}
+
+function buscarCanciones(idAlbum) {
+    idAlbum = "5yLayeW2yw7QpH06QVIpiv";
+    spotifyApi.getAlbumTracks(idAlbum)
+        .then(function (data) {
+            return data.body.items;
+        }, function (err) {
+            console.log("ERROR: buscarCanciones", err);
+        });
+}
+*/
 
 app.listen(3000);
