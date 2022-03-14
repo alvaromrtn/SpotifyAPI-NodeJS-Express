@@ -3,8 +3,7 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <title>titulo cambiar</title>
+    <meta cSpotify API</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -23,37 +22,47 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid-width min-vh-100 max-width">
+        <header style="width:100%">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="/" class="navbar-brand">
+                    <img src="/images/logo/spotify2.png" height="80" alt="HP CURSO">
+                    <b>Spotify API</b>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active" style="font-color:white">
+                            <a class="nav-link" href="/buscar">Buscar<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/random">Random</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/contacto">Contacto</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link " href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-    <div>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
 
-            <a href="/" class="navbar-brand">
-                <img src="/images/logo/spotify2.png" height="80" alt="HP CURSO">
-            </a>
-            <div class="col-2">
-                <a class="nav-link" href="/buscar" style="font-size: 32"><b>Buscar</b></a>
-            </div>
-            <div class="col-3">
-                <a class="nav-link" href="/random" style="font-size: 32"><b>Random</b></a>
-            </div>
-            <div class="col-4">
-                <a class="nav-link" href="/contacto" style="font-size: 32"><b>Contacto</b></a>
-            </div>
-            <div class="col-5">
-                <a class="nav-link" href="/login" style="font-size: 32"><b>Login</b></a>
-            </div>
+        <!----------------------------------------->
 
-        </nav>
-    </div>
+        <content class="fluid-width">
+            <main class="d-flex justify-content-center align-items-center flex-fill" style="height:100%; width:100%">
+                {{{ body }}}
+            </main>
+        </content>
 
-    <div style="padding-bottom: 105px"></div>
 
-    <main>
-        {{{ body }}}
-    </main>
+        <!--------------------------------------------->
 
-    <footer class="page-footer font-small  pt-1 mt-auto " style="background-color: black;">
-        <div class="container-fluid text-bottom text-md-left">
+
+
+        <footer class=" mt-auto" style="background-color: black;">
             <div class="row align-items-center">
                 <div class="col-md-4 mt-3">
                     <p class="text-muted">Trabajo de NodeJS + Express | Aprovechamiento de la API de Spotify</p>
@@ -65,8 +74,7 @@
                     <img class="ml-3 float-right" src="/images/logo/spotify2.png" alt="HP CURSO" style="height: 80">
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 </body>
 
