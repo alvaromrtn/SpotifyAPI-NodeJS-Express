@@ -6,18 +6,28 @@
         {{#if code}}
         <h1>USUARIO CORRECTO</h1>
         {{else}}
-        <h1 style="color:#FF0000">USUARIO O CONTRASEÑA NO CORRECTA</h1>
+        <form action="/login" method="post">
+            <!-- Entrada -->
+            Usuario:<br>
+            <input type="text" name="correo" placeholder="Correo" required><br><br>
+            Contraseña:<br>
+            <input type="password" name="contraseña" placeholder="Contraseña" required><br><br>
+            <!-- Botón -->
+            <input class="btn btn-primary btn-lg" target="blank" type="submit" value="CONECTAR">
+        </form>
+
+        <p style="color:#FF0000">USUARIO O CONTRASEÑA NO CORRECTA</p>
         {{/if}}
 
         {{else}}
         <form action="/login" method="post">
-            <!-- user input-->
-            Username:<br>
-            <input type="text" name="username" placeholder="Username" required><br><br>
-            Password:<br>
-            <input type="password" name="password" placeholder="Password" required><br><br>
-            <!-- submit button -->
-            <input type="submit" value="login">
+            <!-- Entrada -->
+            Usuario:<br>
+            <input type="text" name="correo" placeholder="Correo" required><br><br>
+            Contraseña:<br>
+            <input type="password" name="contraseña" placeholder="Contraseña" required><br><br>
+            <!-- Botón -->
+            <input class="btn btn-primary btn-lg" target="blank" type="submit" value="CONECTAR">
         </form>
         {{/if}}
 

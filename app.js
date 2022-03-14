@@ -1,11 +1,14 @@
-//referencia: https://github.com/Jossdz/lab-spotify-express
+/* Referencias:
+ * + https://github.com/thelinmichael/spotify-web-api-node
+ * + https://github.com/Jossdz/lab-spotify-express
+ */
 
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
 const path = require("path");
 
-const bodyParser = require("body-parser"); // middleware
+const bodyParser = require("body-parser"); //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("view engine", "hbs");
@@ -30,10 +33,10 @@ app.get("/login", (request, response, next) => {
 });
 
 app.post("/login", (request, response, next) => {
-  let username = request.body.username;
-  let password = request.body.password;
+  let correo = request.body.correo;
+  let contraseña = request.body.contraseña;
 
-  if (username == "pepe@pepe.com" && password == "Immune12345") {
+  if (correo == "pepe@pepe.com" && contraseña == "Immune12345") {
     let data = {
       login: true,
       code: true,
