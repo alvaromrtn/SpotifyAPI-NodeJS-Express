@@ -1,4 +1,5 @@
 /* Referencias:
+ * + https://developer.spotify.com/documentation/web-api/reference/#/
  * + https://github.com/thelinmichael/spotify-web-api-node
  * + https://github.com/Jossdz/lab-spotify-express
  */
@@ -82,6 +83,32 @@ app.get("/artistas", (request, response, next) => {
   );
 });
 
+app.get("/albumes/:artista", (req, res, next) => {
+  spotifyApi.getArtistAlbums(req.params.artista).then(
+    function (data) {
+      res.render("albumes", {
+        albumes: data.body.items,
+      });
+    },
+    function (err) {
+      console.log("ERROR: buscarAlbumes", err);
+    }
+  );
+});
+
+app.get("/canciones/:album", (req, res, next) => {
+  spotifyApi.getAlbumTracks(req.params.album).then(
+    function (data) {
+      res.render("canciones", {
+        canciones: data.body.items,
+      });
+    },
+    function (err) {
+      console.log("ERROR: buscarCanciones", err);
+    }
+  );
+});
+
 app.get("/random", (request, response, next) => {
   var random = "";
   var posible =
@@ -103,15 +130,18 @@ app.get("/random", (request, response, next) => {
   );
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.use(function (request, response, next) {
-  response.status(404).render("Error404");
+  response.status(404).render("ERROR 404 - Página no encontrada");
 });
+
+app.listen(3000);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
 function buscarArtistas(nombreArtista) {
-    nombreArtista = "a";
     spotifyApi.searchArtists(nombreArtista)
         .then(function (data) {
             return data.body.artists.items;
@@ -120,8 +150,7 @@ function buscarArtistas(nombreArtista) {
         });
 }
 
-function buscarAlbums(idArtista) {
-    idArtista = "5ZS223C6JyBfXasXxrRqOk";
+function buscarAlbumes(idArtista) {
     spotifyApi.getArtistAlbums(idArtista)
         .then(function (data) {
             return data.body.items;
@@ -131,7 +160,6 @@ function buscarAlbums(idArtista) {
 }
 
 function buscarCanciones(idAlbum) {
-    idAlbum = "5yLayeW2yw7QpH06QVIpiv";
     spotifyApi.getAlbumTracks(idAlbum)
         .then(function (data) {
             return data.body.items;
@@ -140,5 +168,3 @@ function buscarCanciones(idAlbum) {
         });
 }
 */
-
-app.listen(3000);

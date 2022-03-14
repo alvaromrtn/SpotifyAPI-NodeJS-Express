@@ -1,0 +1,28 @@
+<!-- views/canciones.hbs -->
+
+<div class="container ">
+  <div class="jumbotron text-center">
+
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col" style="text-align: left">Nombre</th>
+          <th scope="col" style="text-align: center">Escuchar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each canciones}}
+        <tr>
+          <td align="left">{{this.name}}</td>
+          <td align="center">
+            <audio controls="" name="media">
+              <source src="{{this.preview_url}}" type="audio/mp3" />
+            </audio>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+</div>

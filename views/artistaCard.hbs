@@ -2,8 +2,8 @@
 
 <div class="col-md-4">
     <div class="card">
-        <div class="card-title" align="middle">
 
+        <div class="card-title" align="middle">
             <h5>{{this.name}}</h5>
             {{#each this.images}}
             {{#if @first}}
@@ -12,23 +12,12 @@
             </div>
             {{/if}}
             {{/each}}
-
         </div>
 
         <div class="card-body">
-
             <p>Seguidores: {{this.followers.total}} </p>
-
-            <p> Géneros:
-                {{#each this.genres}}
-            <div class="col-md-6">
-                <p>{{this}}</p>
-            </div>
-            {{/each}}
-            </p>
-
-            <a href="/albumes/{{this.id}}">ÁLBUMES</a>
-
+            <a class="btn btn-primary btn-lg" target="blank" href="/albumes/{{this.id}}">ÁLBUMES</a>
         </div>
+
     </div>
 </div>
