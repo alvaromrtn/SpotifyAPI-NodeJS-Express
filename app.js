@@ -18,6 +18,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 hbs.registerPartials(__dirname + "\\views");
 
+app.get("", (req, res, next) => res.render("home"));
+
 app.get("/", (req, res, next) => res.render("home"));
 
 app.get("/buscar", (request, response, next) => {
